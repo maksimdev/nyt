@@ -9,6 +9,7 @@ export function SearchPanel(props) {
       <Paper className="searchPanel">
         <TextField
             id="search"
+            value={props.value}
             className="searchField"
             label="NYT"
             placeholder="Search articles"
@@ -17,8 +18,9 @@ export function SearchPanel(props) {
             InputLabelProps={{
                 shrink: true,
             }}
+            onChange={props.textFieldHandler}
         />
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onClick={props.search}>
             Search
         </Button>
     </Paper>
