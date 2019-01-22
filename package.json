@@ -4,9 +4,13 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "client": "cd client && npm run start",
+    "build": "cd client && npm run build",
+    "server": "node server.js"
   },
   "author": "Ashmetev M.A.",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
