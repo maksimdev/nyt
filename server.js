@@ -11,7 +11,8 @@ const router = new express.Router();
 
 app.use(express.static("client/build"));
 
-router.get("/api/find", articleController.find);
+router.get("/api/archive", articleController.archive);
+router.get("/api/search", articleController.search);
 
 router.get("/*", function(req, res) {
   res.sendFile(path.join(PUBLIC_PATH, 'index.html'));
