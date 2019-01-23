@@ -1,0 +1,15 @@
+.listContainer {
+    list-style-type: none;
+}
+
+.listItem {
+    margin-bottom: 20px; 
+}
+
+.listItem .headline {
+    font-size: 1.5em;
+}
+
+.listItem .source {
+    font-size: 0.7em;
+}

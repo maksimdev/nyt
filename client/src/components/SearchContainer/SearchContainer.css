@@ -1,0 +1,14 @@
+.resultWrapper {
+  margin-top: 20px;
+  padding: 5%;
+  width: 70%;
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.notFound {
+    color: purple;
+}

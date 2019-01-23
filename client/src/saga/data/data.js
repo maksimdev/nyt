@@ -1,14 +1,17 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import * as Api from '../../api/Api';
+import {
+  GET_DATA,
+  GET_DATA_SUCCESS,
+  GET_MORE_DATA,
+  GET_MORE_DATA_SUCCESS
+} from '../../reducers/data';
 
 export function* getData(action): Generator<*, *, *> {
-  console.log('action', action);
-  console.log(`/api/search?q=${action.payload}`);
   try {
     const response = yield call(Api.getJSON, `/api/search?q=${action.payload}`);
-    console.log('response', response);
     yield put({
-      type: 'GET_DATA_SUCCESS',
+      type: GET_DATA_SUCCESS,
       payload: response.data.response.docs
     });
   } catch (error) {
@@ -16,9 +19,25 @@ export function* getData(action): Generator<*, *, *> {
   }
 }
 function* watchData(): Generator<*, *, *> {
-  yield takeLatest('GET_DATA', getData);
+  yield takeLatest(GET_DATA, getData);
+}
+
+export function* getMoreData(action): Generator<*, *, *> {
+  try {
+    const response = yield call(Api.getJSON, `/api/search?q=${action.payload.queryString}&page=${action.payload.page}`);
+    yield put({
+      type: GET_MORE_DATA_SUCCESS,
+      payload: response.data.response.docs
+    });
+  } catch (error) {
+    yield console.log(error);
+  }
+}
+function* watchMoreData(): Generator<*, *, *> {
+  yield takeLatest(GET_MORE_DATA, getMoreData);
 }
 
 export default [
-  watchData()
+  watchData(),
+  watchMoreData()
 ];

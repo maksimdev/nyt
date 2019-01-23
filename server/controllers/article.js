@@ -13,7 +13,7 @@ module.exports = {
   },
 
   search: function(req, res) {
-    HTTP.get(`svc/search/v2/articlesearch.json?q=${req.query.q}`)
+    HTTP.get(`svc/search/v2/articlesearch.json?q=${req.query.q}&page=${req.query.page || 0}`)
         .then(function (response) {
             res.send(response.data);
         })
