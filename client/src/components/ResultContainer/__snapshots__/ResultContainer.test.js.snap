@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultContainer should to match snapshot 1`] = `
+<Fragment>
+  <ul
+    className="listContainer"
+  />
+  <WithStyles(Button)>
+    Show more
+  </WithStyles(Button)>
+</Fragment>
+`;

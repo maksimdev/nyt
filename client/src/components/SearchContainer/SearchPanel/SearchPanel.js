@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import './SearchPanel.css';
 
-export function SearchPanel(props) {
+function SearchPanel(props) {
     return (
       <Paper className="searchPanel">
         <TextField
@@ -26,3 +26,5 @@ export function SearchPanel(props) {
     </Paper>
     );
 };
+
+export default SearchPanel;

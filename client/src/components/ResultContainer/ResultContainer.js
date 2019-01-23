@@ -43,7 +43,7 @@ function list(list) {
     );
 }
 
-export const ResultContainer = props => (
+const ResultContainer = props => (
     <>
       {list(props.list)}
       {
@@ -53,3 +53,5 @@ export const ResultContainer = props => (
       }
     </>
 );
+
+export default ResultContainer;

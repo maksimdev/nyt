@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchPanel should to match snapshot 1`] = `
+<WithStyles(Paper)
+  className="searchPanel"
+>
+  <TextField
+    InputLabelProps={
+      Object {
+        "shrink": true,
+      }
+    }
+    className="searchField"
+    fullWidth={true}
+    id="search"
+    label="NYT"
+    placeholder="Search articles"
+    required={false}
+    select={false}
+    variant="outlined"
+  />
+  <WithStyles(Button)
+    color="primary"
+    variant="contained"
+  >
+    Search
+  </WithStyles(Button)>
+</WithStyles(Paper)>
+`;

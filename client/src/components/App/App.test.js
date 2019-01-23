@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import * as Enzyme from 'enzyme';
 import App from './App';
+import Adapter from 'enzyme-adapter-react-16';
+import enzymeSerializer from 'enzyme-to-json/serializer';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+Enzyme.configure({ adapter: new Adapter() })
+
+expect.addSnapshotSerializer(enzymeSerializer);
+describe('App', () => {
+    it('should to match snapshot', () => {
+        const AppComponent = Enzyme.shallow(<App />);
+        expect(AppComponent).toMatchSnapshot();
+    });
 });
