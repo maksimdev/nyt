@@ -4,7 +4,8 @@ import {
   GET_DATA,
   GET_DATA_SUCCESS,
   GET_MORE_DATA,
-  GET_MORE_DATA_SUCCESS
+  GET_MORE_DATA_SUCCESS,
+  GET_DATA_FAILURE
 } from '../../reducers/data';
 
 export function* getData(action): Generator<*, *, *> {
@@ -15,7 +16,10 @@ export function* getData(action): Generator<*, *, *> {
       payload: response.data.response.docs
     });
   } catch (error) {
-    yield console.log(error);
+    yield put({
+      type: GET_DATA_FAILURE,
+      payload: error
+    });
   }
 }
 function* watchData(): Generator<*, *, *> {
@@ -30,7 +34,10 @@ export function* getMoreData(action): Generator<*, *, *> {
       payload: response.data.response.docs
     });
   } catch (error) {
-    yield console.log(error);
+    yield put({
+      type: GET_DATA_FAILURE,
+      payload: error
+    });
   }
 }
 function* watchMoreData(): Generator<*, *, *> {

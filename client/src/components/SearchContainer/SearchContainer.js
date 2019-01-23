@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   isFetching: state.data.isFetching,
   isFetchingAgain: state.data.isFetchingAgain,
   result: state.data.result,
+  error: state.data.error,
   articles: state.data.articles
 });
 
@@ -47,6 +48,10 @@ class SearchContainer extends React.Component {
     );  
   }
 
+  getError = (error) => (
+    <p className="error">{error.message}</p>
+  )
+
   render() {
     return (
       <>
@@ -56,7 +61,11 @@ class SearchContainer extends React.Component {
           value={this.state.queryString}
         />
         <Paper className={classNames('resultWrapper', {visible: this.props.isFetching || this.props.result})}>
-          {this.props.isFetching ? <CircularProgress disableShrink /> : null}
+          {
+            this.props.isFetching ?
+              this.props.error ? this.getError(this.props.error) : <CircularProgress disableShrink />
+            : null
+          }
           {
             this.props.articles.length
               ? <ResultContainer

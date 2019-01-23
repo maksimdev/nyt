@@ -10,5 +10,9 @@
 }
 
 .notFound {
-    color: purple;
+  color: purple;
+}
+
+.error {
+  color: purple;
 }
