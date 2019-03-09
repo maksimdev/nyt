@@ -5,7 +5,7 @@ const articleController = require('./server/controllers/article');
 
 const PUBLIC_PATH = __dirname + '/client/public';
 
-const PORT = 3000;
+const PORT = 4000;
 
 const router = new express.Router();
 
